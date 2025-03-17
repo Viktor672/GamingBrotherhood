@@ -18,6 +18,7 @@ function App() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/404" element={<NotFound />} />
+                    <Route path="/about" element={<AboutPage />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </main>
