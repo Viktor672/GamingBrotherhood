@@ -15,8 +15,8 @@ export default function NotFound() {
                     <Link to="/" className="go-home-button" aria-label="Go back home">
                         Go back home
                     </Link>
-                    <Link to="/contact" className="contact-support" aria-label="Contact support">
-                        Contact support <span aria-hidden="true">&rarr;</span>
+                    <Link to="/games" className="go-to-games" aria-label="Go see games">
+                        Go see games <span aria-hidden="true">&rarr;</span>
                     </Link>
                 </div>
             </div>

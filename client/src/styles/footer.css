@@ -2,12 +2,12 @@
     width: 100%;
     color: #c5c6c7;                /* ✅ Light text for readability */
     text-align: center;
-    padding: 15px 0;               /* ✅ Adequate spacing */
+    margin: -5px 0;               /* ✅ Adequate spacing */
     font-size: 0.9rem;             /* Slightly smaller text for a professional look */
 }
 
 .footer-bottom p {
-    margin: -100px;                     /* ✅ Avoids extra spacing */
+    margin: -30px;                     /* ✅ Avoids extra spacing */
     padding: 5px 0;                /* ✅ Ensures text is vertically centered */
     opacity: 0.8;                  /* Slightly transparent text for a softer look */
     letter-spacing: 0.5px;         /* Improves readability */

@@ -71,6 +71,3 @@ header .navigation .navigation-items a:hover:before {
     width: 100%;                /* Expands underline on hover */
 }
 
-.main-content {
-    padding-top: -80px;         /* ✅ Space for fixed header */
-}

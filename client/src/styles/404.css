@@ -61,13 +61,13 @@
   outline-color: #4c51bf;
 }
 
-.contact-support {
+.go-to-games {
   font-size: 0.875rem;
   font-weight: 600;
   color: #1a202c;
 }
 
-.contact-support span[aria-hidden="true"] {
+.go-to-games span[aria-hidden="true"] {
   display: inline-block;
   margin-left: 0.25rem;
 }
