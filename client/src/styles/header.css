@@ -7,54 +7,70 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* ============================= */
+/* ======= HEADER STYLING ======= */
+/* ============================= */
+
 header {
-  z-index: 999;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 200px;
-  transition: 0.5s ease;
+    z-index: 999;              /* Ensures header is always above content */
+    position: fixed;           /* Fixed at the top to stay visible */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1f2833;  /* ✅ Dark background for distinct block */
+    color: #ffffff;             /* ✅ White text for contrast */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ✅ Soft shadow for visual depth */
+    transition: background 0.3s ease;
 }
 
+/* Brand / Logo */
 header .brand {
-  color: #000;
-  font-size: 1.5em;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
+    color: #66fcf1;             /* ✅ Bright accent for branding */
+    font-size: 1.8em;           /* Slightly larger for emphasis */
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
 }
 
+/* Navigation */
 header .navigation {
-  position: relative;
+    position: relative;
 }
 
-header .navigation .navigation-items a{
-  position: relative;
-  color: #000;
-  font-size: 1em;
-  font-weight: 500;
-  text-decoration: none;
-  margin-left: 30px;
-  transition: 0.3s ease;
+header .navigation .navigation-items a {
+    position: relative;
+    color: #ffffff;             /* ✅ White text for improved contrast */
+    font-size: 1.1em;           /* Slightly larger text */
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: color 0.3s ease;
 }
 
+header .navigation .navigation-items a:hover {
+    color: #66fcf1;             /* ✅ Bright hover effect */
+}
+
+/* Underline Animation */
 header .navigation .navigation-items a:before {
-  content: '';
-  position: absolute;
-  background: #000;
-  width: 0;
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  transition: 0.3s ease;
+    content: '';
+    position: absolute;
+    background: #66fcf1;
+    width: 0;
+    height: 3px;
+    bottom: -3px;               /* Slightly below the text for cleaner look */
+    left: 0;
+    transition: width 0.3s ease;
 }
 
 header .navigation .navigation-items a:hover:before {
-  width: 100%;
+    width: 100%;                /* Expands underline on hover */
 }
 
-
+.main-content {
+    padding-top: -80px;         /* ✅ Space for fixed header */
+}
