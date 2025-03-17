@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+section {
+    padding: 50px 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    padding: 20px;
+}
+
+.home .content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    max-width: 600px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    margin: 15px 0;
+}
+
+.home .content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.home .content span {
+    color: #FFD700;
+}
+
+.home .content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.home .content a {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #FFD700;
+    color: #000;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.home .content a:hover {
+    background-color: #FFA500;
+}
+
+.cta-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Video Slide Fix */
+.video-slide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+}
+
+.media-nav-container {
+    position: absolute;
+    bottom: 180px;  /* Adjust this to move it higher */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    z-index: 2;
+    bottom: 180px 
+}
+
+/* Media Icons */
+.media-icons {
+    display: flex;
+    gap: 15px;
+    z-index: 2; 
+}
+
+.media-icons a img {
+    width: 30px; /* Adjust icon size */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.media-icons a:hover img {
+    transform: scale(1.2);
+}
+
+/* Slider Navigation */
+.slider-navigation {
+    display: flex;
+    gap: 10px;
+    z-index: 2; /* Ensure above video */
+}
+
+.nav-btn {
+    width: 12px;
+    height: 12px;
+    background-color: white; /* Ensure visibility */
+    border: 2px solid black; /* Optional for visibility */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.nav-btn.active,
+.nav-btn:hover {
+    background-color: #FFD700;
+}
