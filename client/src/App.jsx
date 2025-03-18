@@ -22,6 +22,7 @@ function App() {
                     <Route path="/404" element={<NotFound />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/games" element={<GamesPage />} />
+                    <Route path="/details/:id" element={<DetailsPage />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </main>

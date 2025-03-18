@@ -50,6 +50,7 @@ export default function GamesPage() {
                 loop
                 preload="auto"
             />
+            
             <div className="content">
                 <div className="blog">
                     <div className="blog__container">
