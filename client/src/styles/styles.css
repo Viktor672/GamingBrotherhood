@@ -1,10 +1,11 @@
-@import url('./global.css'); 
-@import url('./header.css');
-@import url('./home.css');
-@import url('./footer.css'); 
-@import url('./auth.css'); 
-@import url('./404.css'); 
-@import url('./about.css'); 
+    @import url('./global.css'); 
+    @import url('./header.css');
+    @import url('./home.css');
+    @import url('./games.css'); 
+    @import url('./footer.css'); 
+    @import url('./auth.css'); 
+    @import url('./404.css'); 
+    @import url('./about.css'); 
 
 
 
