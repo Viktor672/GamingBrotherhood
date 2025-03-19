@@ -2,118 +2,113 @@
     position: relative;
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(to right, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8)), url('../assets/images/big-foot.jpg') no-repeat center center/cover;
+    background: linear-gradient(to right, rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.85)), url('../assets/images/big-foot.jpg') no-repeat center center/cover;
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 2rem;
-}
-
-.video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
+    padding: 3rem 2rem;
 }
 
 .details__container {
-    max-width: 700px;
-    padding: 2.0rem;
-    border-radius: 16px;
+    max-width: 750px;
+    padding: 2.5rem;
+    border-radius: 20px;
     text-align: center;
     position: relative;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.7);
     color: #e2e8f0;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .details__container:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .details__title {
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
     color: #e0f2fe;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .details__date {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #a1a1aa;
     margin-bottom: 1.5rem;
 }
 
 .details__description {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     line-height: 1.8;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: justify;
     letter-spacing: 0.5px;
     color: #d1d5db;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .details__author {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.2rem;
-    margin-top: 2rem;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
     text-align: center;
 }
 
 .details__author-img {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    border: 3px solid #38bdf8;
+    border: 4px solid #38bdf8;
     object-fit: cover;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
 }
 
 .details__author-name {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 600;
     color: #facc15;
+    margin-top: 30px;
+    margin-bottom: 0.8rem;
 }
 
 .details__author-email {
     font-size: 1.1rem;
     color: #a1a1aa;
+    margin-bottom: 1.5rem;
 }
 
 .details__buttons {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem;
     margin-top: 3rem;
 }
 
 .details__edit-btn,
 .details__delete-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.3s, background 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.4s ease, background 0.4s ease;
     position: relative;
-    text-align: center;
-    overflow: hidden;
     display: inline-block;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     letter-spacing: 1px;
+    text-align: center;
 }
 
 .details__edit-btn {
@@ -123,13 +118,13 @@
 
 .details__edit-btn:hover {
     background: linear-gradient(135deg, #059669, #047857);
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
 }
 
 .details__edit-btn:active {
     transform: translateY(2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .details__delete-btn {
@@ -139,13 +134,13 @@
 
 .details__delete-btn:hover {
     background: linear-gradient(135deg, #a91616, #a61d1d);
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
 }
 
 .details__delete-btn:active {
     transform: translateY(2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .details__edit-btn:before,
@@ -167,4 +162,18 @@
 .details__delete-btn:hover:before {
     transform: translate(-50%, -50%) scale(1);
     opacity: 0;
+}
+
+.details__multiplayer {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    color: #d1d5db;
+}
+
+.details__rating {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    color: #d1d5db;
 }

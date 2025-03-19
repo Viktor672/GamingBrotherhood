@@ -11,6 +11,8 @@ const postsObj = [
     category: { title: "Fantasy", href: "#" },
     backgroundImage: "../src/assets/images/world-of-warcraft.webp",
     likes: 0,
+    multiplayer: true,
+    rating: "T(Teen)",
     author: {
       name: "Smith Williams",
       email: "smithwilliams@gmail.com",
@@ -29,6 +31,8 @@ const postsObj = [
     category: { title: "Fantasy", href: "#" },
     backgroundImage: "../src/assets/images/league-of-legends.jpg",
     likes: 0,
+    multiplayer: true,
+    rating: "E(Everyone)",
     author: {
       name: "Mary Hayden",
       email: "maryhayden@gmail.com",
@@ -56,31 +60,33 @@ export default function DetailsPage() {
       }}
     >
 
-      <video
-        className="video-background"
-        src="../src/public/assets/videos/.mp4"
-        autoPlay
-        muted
-        loop
-      />
-
-      <div className="details__container" >
-
+      <div className="details__container">
         <div className="details__header">
           <img src={post.author.imageUrl} alt={post.author?.name} className="details__author-img" />
         </div>
+
         <h1 className="details__title">{post.title}</h1>
         <p className="details__date">{post.date} | {post.category?.title}</p>
         <p className="details__description">{post.description}</p>
+
+        {/* Multiplayer Info */}
+        <p className="details__multiplayer">
+          Multiplayer: {post.multiplayer ? "✅ Supported" : "❌ Not Supported"}
+        </p>
+
+        {/* Rating */}
+        <p className="details__rating">😄 Age Rating: {post.rating}</p>
+
         <div className="details__author-info">
           <p className="details__author-name">{post.author?.name}</p>
           <p className="details__author-email">{post.author?.email}</p>
         </div>
+
         <div className="details__buttons">
           <button className="details__edit-btn">Edit</button>
           <button className="details__delete-btn">Delete</button>
         </div>
       </div>
-    </div >
+    </div>
   );
 }

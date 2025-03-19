@@ -1,21 +1,21 @@
 .footer-bottom {
     width: 100%;
-    color: #c5c6c7;                /* ✅ Light text for readability */
+    color: #d6d6d6;                
     text-align: center;
-    margin: -5px 0;               /* ✅ Adequate spacing */
-    font-size: 0.9rem;             /* Slightly smaller text for a professional look */
+    margin: -5px 0;               
+    font-size: 0.9rem;    
 }
 
 .footer-bottom p {
-    margin: -30px;                     /* ✅ Avoids extra spacing */
-    padding: 5px 0;                /* ✅ Ensures text is vertically centered */
-    opacity: 0.8;                  /* Slightly transparent text for a softer look */
-    letter-spacing: 0.5px;         /* Improves readability */
+    margin: -30px;        
+    padding: 5px 0;     
+    opacity: 0.8;                
+    letter-spacing: 0.5px;      
 }
 
 @media (max-width: 768px) {
     .footer-bottom {
-        padding: 10px 0;           /* ✅ Slightly smaller padding for smaller screens */
-        font-size: 0.8rem;         /* Text size optimized for mobile */
+        padding: 10px 0;
+        font-size: 0.8rem;    
     }
 }

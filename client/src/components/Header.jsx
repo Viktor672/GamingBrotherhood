@@ -1,4 +1,4 @@
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 export default function Header() {
     return (
@@ -8,7 +8,8 @@ export default function Header() {
                 <div className="menu-btn"></div>
                 <div className="navigation">
                     <div className="navigation-items">
-                        <a href="/games">Games</a>
+                        <Link to="/games">Games</Link>
+                        <Link to="/create">Create</Link>
                         <Link to="/about">About</Link>
                         <Link to="/login">Login</Link>
                         <Link to="/register">Register</Link>

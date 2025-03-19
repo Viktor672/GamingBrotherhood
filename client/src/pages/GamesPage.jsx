@@ -44,7 +44,7 @@ export default function GamesPage() {
         <div className="page-container">
             <video
                 className="video-background"
-                src="../src/public/assets/videos/gamesVideo.mov"
+                src="../src/assets/videos/gamesVideo.mov"
                 autoPlay
                 muted
                 loop

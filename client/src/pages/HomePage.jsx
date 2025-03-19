@@ -9,7 +9,7 @@ export default function HomePage() {
         <section className="home">
             <video
                 className="video-slide"
-                src="../src/public/assets/videos/homeVideo.mp4"
+                src="../src/assets/videos/homeVideo.mp4"
                 autoPlay
                 muted
                 loop
