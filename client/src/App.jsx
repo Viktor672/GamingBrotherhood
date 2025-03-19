@@ -8,6 +8,7 @@ import AboutPage from './pages/AboutPage';
 import NotFound from './pages/404';
 import GamesPage from './pages/GamesPage';
 import DetailsPage from './pages/DetailsPage';
+import CreatePage from './pages/CreatePage';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/games" element={<GamesPage />} />
                     <Route path="/details/:id" element={<DetailsPage />} />
+                    <Route path="/create" element={<CreatePage />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </main>
