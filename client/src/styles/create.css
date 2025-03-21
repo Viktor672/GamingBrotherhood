@@ -45,7 +45,7 @@ h1 {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.input-group input[type="text"]:focus,
+.input-group input[type="text"]:hover,
 .input-group input[type="date"]:focus {
   border-color: #007bff !important;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.6) !important;

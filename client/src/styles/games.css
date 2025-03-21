@@ -4,6 +4,7 @@
     height: 100vh;
     overflow: hidden;
     margin-top: -2rem; 
+    background-color: #000; 
 }
 
 .video-background {
@@ -93,7 +94,7 @@
     color: #d4d4d4;
 }
 
-.blog__category {
+.blog__genre {
     background-color: #e0f2fe;
     color: #0284c7;
     padding: 0.5rem 1rem;
@@ -102,7 +103,7 @@
     text-decoration: none;
 }
 
-.blog__category:hover {
+.blog__genre:hover {
     background-color: #b5e1f9;
 }
 
@@ -164,6 +165,11 @@
     color: inherit;
 }
 
+.blog__author-name a:hover {
+    color: #f600f6;
+    transition: color 0.3s ease-in-out;
+}
+
 .blog__author-email {
     color: #d3d3d3;
 }
@@ -211,3 +217,31 @@
     color: #ffffff;
     font-weight: 500;
 }
+
+.no-games {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #eb3434, #ff4444);
+    border: none;
+    display: inline-block;
+    box-shadow: 0px 4px 15px rgba(255, 77, 77, 0.5);
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0px 4px 15px rgba(255, 77, 77, 0.5);
+    }
+    100% {
+        transform: scale(1.05);
+        box-shadow: 0px 6px 20px rgba(255, 77, 77, 0.7);
+    }
+}
+
+
