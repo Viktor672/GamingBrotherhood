@@ -46,11 +46,11 @@ export default function GamesPage() {
 
                                         <div className="blog__meta">
                                             <time className="blog__date">{game.date}</time>
-                                            <Link to={`/details/${game._id}`} className="blog__genre">{game.genre}</Link>
+                                            <Link to={`/${game._id}/details`} className="blog__genre">{game.genre}</Link>
                                         </div>
 
                                         <h3 className="blog__post-title">
-                                            <Link to={`/details/${game._id}`} className="blog__title-btn">{game.title}</Link>
+                                            <Link to={`/${game._id}/details`} className="blog__title-btn">{game.title}</Link>
                                         </h3>
                                         <p className="blog__description">{game.description}</p>
 

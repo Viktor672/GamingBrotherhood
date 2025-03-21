@@ -35,7 +35,7 @@ function App() {
                         <Route path="/404" element={<NotFound />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/games" element={<GamesPage />} />
-                        <Route path="/details/:gameId" element={<DetailsPage />} />
+                        <Route path="/:gameId/details" element={<DetailsPage />} />
                         <Route path="/:gameId/edit" element={<EditPage />} />
                         <Route path="/:gameId/delete" element={<DeletePage />} />
                         <Route path="/create" element={<CreatePage />} />

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 export default function CreatePage() {
   let { create } = useCreate();
   let navigate = useNavigate();
-  let [imageUrl, setImageUrl] = useState("");
+  let [imageUrl, setImageUrl] = useState('');
 
   let submitAction = async (formData) => {
     let gameData = Object.fromEntries(formData);
@@ -17,10 +17,10 @@ export default function CreatePage() {
   }
 
   const handleFileChange = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;  
+    let file = e.target.files?.[0];
+    if (!file) return;
 
-    const reader = new FileReader();
+    let reader = new FileReader();
     reader.onload = (event) => setImageUrl(event.target.result);
     reader.readAsDataURL(file);
   };
