@@ -10,11 +10,9 @@ export default function RegisterPage() {
 
     let registerHandler = async (state, formData) => {
         let formDataValues = Object.fromEntries(formData);
-
         let data = await register(formDataValues.email, formDataValues.password, formDataValues.rePassword);
-        
         setUserHandler(data);
-
+        
         navigate('/games');
     }
 

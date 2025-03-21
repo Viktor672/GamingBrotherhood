@@ -12,13 +12,14 @@ import CreatePage from './pages/CreatePage';
 import { useState } from 'react';
 import { UserContext } from './contexts/UserContext';
 import LogoutPage from './pages/LogoutPage';
+import EditPage from './pages/EditPage';
+import DeletePage from './pages/DeletePage';
 
 function App() {
     let [user, setUser] = useState({});
 
     let setUserHandler = (data = {}) => {
         setUser(data);
-        console.log(data);
     }
 
     return (
@@ -34,7 +35,9 @@ function App() {
                         <Route path="/404" element={<NotFound />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/games" element={<GamesPage />} />
-                        <Route path="/details/:id" element={<DetailsPage />} />
+                        <Route path="/details/:gameId" element={<DetailsPage />} />
+                        <Route path="/:gameId/edit" element={<EditPage />} />
+                        <Route path="/:gameId/delete" element={<DeletePage />} />
                         <Route path="/create" element={<CreatePage />} />
                         <Route path="/logout" element={<LogoutPage />} />
                         <Route path="*" element={<NotFound />} />
