@@ -1,4 +1,7 @@
-import { useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
+import { useDelete, useGame } from "../apiHooks/gameApi";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 const postsObj = [
   {
@@ -9,7 +12,7 @@ const postsObj = [
     date: "Mar 18, 2025",
     datetime: "2025-03-18",
     category: { title: "Fantasy", href: "#" },
-    backgroundImage: "../src/assets/images/world-of-warcraft.webp",
+    imageUrl: "../src/assets/images/world-of-warcraft.webp",
     likes: 0,
     multiplayer: true,
     rating: "T(Teen)",
@@ -44,17 +47,16 @@ const postsObj = [
 ];
 
 export default function DetailsPage() {
-  const { id } = useParams();
-  const post = postsObj.find((p) => p.id === Number(id));
+  let { gameId } = useParams();
+  let { _id } = useContext(UserContext);
+  let { game } = useGame(gameId);
 
-  if (!post) {
-    return <h2>Post not found</h2>;
-  }
+  let isOwner = _id !== undefined && _id === game._ownerId;
 
   return (
     <div className="details"
       style={{
-        backgroundImage: `url(${post.backgroundImage})`,
+        backgroundImage: `url(${game.imageUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -62,30 +64,27 @@ export default function DetailsPage() {
 
       <div className="details__container">
         <div className="details__header">
-          <img src={post.author.imageUrl} alt={post.author?.name} className="details__author-img" />
+          <img src={game.author?.imageUrl} alt={game.authorName} className="details__author-img" />
         </div>
 
-        <h1 className="details__title">{post.title}</h1>
-        <p className="details__date">{post.date} | {post.category?.title}</p>
-        <p className="details__description">{post.description}</p>
+        <h1 className="details__title">{game.title}</h1>
+        <p className="details__date">{game.date} | {game.genre}</p>
+        <p className="details__description">{game.description}</p>
 
-        {/* Multiplayer Info */}
-        <p className="details__multiplayer">
-          Multiplayer: {post.multiplayer ? "✅ Supported" : "❌ Not Supported"}
-        </p>
-
-        {/* Rating */}
-        <p className="details__rating">😄 Age Rating: {post.rating}</p>
 
         <div className="details__author-info">
-          <p className="details__author-name">{post.author?.name}</p>
-          <p className="details__author-email">{post.author?.email}</p>
+          <p className="details__author-email">{game.authorEmail}</p>
         </div>
-
-        <div className="details__buttons">
-          <button className="details__edit-btn">Edit</button>
-          <button className="details__delete-btn">Delete</button>
-        </div>
+        {isOwner
+          ? (
+            <div className="details__buttons">
+              <Link to={`/${gameId}/edit`} className="details__edit-btn">Edit</Link>
+              <Link to={`/${gameId}/delete`} className="details__delete-btn">Delete</Link>
+            </div>
+          )
+          :
+          null
+        }
       </div>
     </div>
   );
