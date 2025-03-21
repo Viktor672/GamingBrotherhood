@@ -66,7 +66,6 @@ export let useCreate = () => {
 
 export let useDelete = () => {
     let { accessToken } = useContext(UserContext);
-console.log(accessToken);
 
     let options = {
         headers: {
@@ -76,7 +75,7 @@ console.log(accessToken);
 
     let deleteGame = async (gameId) => {
         try {
-            await handleRequest(`${baseUrl}/${gameId}`, 'DELETE',{},options);
+            await handleRequest(`${baseUrl}/${gameId}`, 'DELETE', {}, options);
         }
         catch (err) {
             return alert(err.message);
@@ -85,5 +84,23 @@ console.log(accessToken);
 
     return {
         deleteGame
+    }
+}
+
+export let useEdit = () => {
+    let { accessToken } = useContext(UserContext);
+
+    let editGame = async (gameId, gameData) => {
+        let options = {
+            headers: {
+                'X-Authorization': accessToken
+            }
+        }
+
+        handleRequest(`${baseUrl}/${gameId}`, 'PUT', gameData, options);
+    }
+
+    return {
+        editGame
     }
 }
