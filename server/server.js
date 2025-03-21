@@ -1649,7 +1649,21 @@
     			_createdOn: 1616237272948,
     			_updatedOn: 1616237293676
     		}
-    	}
+    	},
+        games: {
+            '1': {
+                gameId: 1,
+                ownerId: 11,
+                title: "World Of Warcraft",
+                description:
+                    "Travel deep into the goblin city of Undermine and learn to D.R.I.V.E., join a cartel, adventure in two new delves, a new dungeon: Operation Floodgate, face Gallywix in the Liberation of Undermine raid, battle in a new PvP Arena— and more!",
+                date: "2025-3-18",
+                genre: "Fantasy",
+                imageUrl: "../src/assets/images/world-of-warcraft.webp",
+                likes: 0,
+                authorEmail: "smithwilliams@gmail.com",
+            },
+        }
     };
     var rules$1 = {
     	users: {
