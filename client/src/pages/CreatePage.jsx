@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import gameService from "../services/gameService.js";
+
+// gameService.create({name:'Pesho'});
+
+
+// gameService.getAll()
+// .then(data=>console.log(data));
 
 export default function CreatePage() {
   const [formData, setFormData] = useState({
