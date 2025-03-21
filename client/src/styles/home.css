@@ -25,7 +25,7 @@ section {
 .home .content {
     position: relative;
     z-index: 1;
-    color: #fff;
+    color: #d3bdbd;
     max-width: 600px;
     text-align: center;
     background: rgba(0, 0, 0, 0.8);
@@ -36,6 +36,7 @@ section {
 }
 
 .home .content h1 {
+    color: #d3bdbd;
     font-size: 2.5rem;
     margin-bottom: 10px;
 }

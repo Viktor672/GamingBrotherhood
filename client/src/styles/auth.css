@@ -16,70 +16,57 @@
     width: 100%;
     height: 100%;
     z-index: 0;
-    /* Keeps overlay behind content */
 }
-
-/* ============================= */
-/* ========== FORM ============== */
-/* ============================= */
 
 .form {
     font-family: "Roboto", sans-serif;
     position: relative;
-    /* Keeps the form above the overlay */
     z-index: 1;
     background: #FFFFFF;
     opacity: 0.95;
     max-width: 400px;
-    /* ✅ Increased form width */
     padding: 30px 50px;
-    /* ✅ Improved internal spacing */
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    /* Subtle shadow for depth */
     border-radius: 12px;
 }
 
-/* Heading */
 .form p {
     font-size: 18px;
-    /* ✅ Slightly larger for improved visibility */
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* Input Fields */
 .form input {
     outline: 0;
     border-radius: 10px;
-    background: #F2F2F2;
     width: 100%;
     height: 50px;
-    /* ✅ Increased input height */
     border: 0;
     margin-bottom: 20px;
     padding: 15px;
     box-sizing: border-box;
     font-size: 16px;
-    /* ✅ Improved text size */
 }
 
-/* Input Hover & Focus */
-.form input:hover,
-.form input:focus {
-    background-color: #D3F8F9;
+
+.form .auth-input {
+    background-color: #E0F7FA;
+}
+
+.form .auth-input:hover,
+.form .auth-input:focus {
+    background-color: #99e0e2;
     transition: all 0.3s ease;
 }
 
-/* Button */
-.form button {
+.auth-btn-submit {
     text-transform: uppercase;
     outline: 0;
     border-radius: 10px;
     background: #1ADBE5;
     width: 100%;
     height: 50px;
-    /* ✅ Larger button for improved visibility */
     border: 0;
     padding: 15px;
     color: #FFFFFF;
@@ -88,21 +75,18 @@
     transition: background 0.3s ease;
 }
 
-.form button:hover,
-.form button:active,
-.form button:focus {
-    background-color: #06C5CF;
+.auth-btn-submit:hover,
+.auth-btn-submit:active,
+.auth-btn-submit:focus {
+    background-color: #008993;
 }
 
-/* Message Styling */
 .form .message {
     margin-top: 20px;
     color: #B3B3B3;
     font-size: 14px;
-    /* ✅ Improved text size */
 }
 
-/* Register Link */
 .form .message a {
     color: #06C5CF;
     text-decoration: none;
@@ -112,5 +96,4 @@
 
 .form .message a:hover {
     color: #1ADBE5;
-    /* Bright hover effect */
 }
