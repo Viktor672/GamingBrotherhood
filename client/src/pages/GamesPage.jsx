@@ -1,15 +1,24 @@
 import { Link } from 'react-router';
 import { useAllGames } from '../apiHooks/gameApi';
-import { useContext } from 'react';
-import { UserContext } from '../contexts/UserContext';
-
+import { useEffect, useState } from 'react';
 
 export default function GamesPage() {
-    let { allGames } = useAllGames();
-    let {email} = useContext(UserContext);
-    console.log(email);
-    
-    console.log(allGames);
+    let { allGames, loading } = useAllGames();  
+    let [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        if (allGames.length > 0) {
+            setIsLoading(false);  
+        }
+    }, [allGames]);
+
+    if (isLoading || loading) {
+        return (
+            <div className="loading-container">
+                <div className="loading-spinner"></div> 
+            </div>
+        );
+    }
 
     return (
         <div className="page-container">
@@ -35,7 +44,7 @@ export default function GamesPage() {
                                 ?
                                 allGames.map((game) => (
                                     <article
-                                        key={game.id}
+                                        key={game._id}
                                         className="blog__post"
                                         style={{
                                             backgroundImage: `url(${game.imageUrl})`,
@@ -43,7 +52,6 @@ export default function GamesPage() {
                                             backgroundPosition: "center",
                                         }}
                                     >
-
                                         <div className="blog__meta">
                                             <time className="blog__date">{game.date}</time>
                                             <Link to={`/${game._id}/details`} className="blog__genre">{game.genre}</Link>
@@ -54,11 +62,10 @@ export default function GamesPage() {
                                         </h3>
                                         <p className="blog__description">{game.description}</p>
 
-
                                         <div className="blog__author">
                                             <div className="blog__author-info">
                                                 <p className="blog__author-name">
-                                                    <a href={game.author?.href}>{email}</a>
+                                                    <Link to={game.author?.href}>{game?.authorEmail}</Link>
                                                 </p>
                                             </div>
                                         </div>
