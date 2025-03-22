@@ -12,6 +12,8 @@ export default function DetailsPage() {
   let { like, getLikes } = useUser();
 
   let isOwner = _id !== undefined && _id === game._ownerId;
+
+  //  some test accounts like george@abv.bg might have old or invalid like data stored
   // localStorage.removeItem(`liked_${gameId}_${_id}`);
 
   let [likesCount, setLikesCount] = useState(0);

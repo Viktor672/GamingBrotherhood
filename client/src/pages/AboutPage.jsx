@@ -1,3 +1,5 @@
+import {Link} from 'react-router';
+
 const links = [
   { name: "Go to Home Page", href: "/" },
   { name: "Explore Games", href: "/games" },
@@ -25,9 +27,9 @@ export default function AboutPage() {
           </p>
           <div className="about-links">
             {links.map((link) => (
-              <a key={link.name} href={link.href} className="about-link">
+              <Link to={link.href} key={link.name} className="about-link">
                 {link.name} →
-              </a>
+              </Link>
             ))}
           </div>
         </div>
