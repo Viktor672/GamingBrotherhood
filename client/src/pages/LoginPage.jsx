@@ -11,7 +11,6 @@ export default function LoginPage() {
     let loginHandler = async (state, formData) => {
         let formDataValues = Object.fromEntries(formData);
         let data = await login(formDataValues.email, formDataValues.password);
-console.log(data);
         setUserHandler(data);
 
         navigate('/games');

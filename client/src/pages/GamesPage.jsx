@@ -69,16 +69,6 @@ export default function GamesPage() {
                                                 </p>
                                             </div>
                                         </div>
-
-                                        <div className="blog__like-section">
-                                            <button className="blog__like-btn">
-                                                <span className="blog__like-text">Like</span>
-                                            </button>
-                                            <div className="blog__like-count-wrapper">
-                                                <span className="blog__like-icon"><img src="../src/assets/images/heart.svg" alt="" /></span>
-                                                <span className="blog__like-count">{game.likes} Likes</span>
-                                            </div>
-                                        </div>
                                     </article>
                                 ))
                                 :

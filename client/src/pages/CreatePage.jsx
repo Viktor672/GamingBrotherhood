@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useCreate } from "../apiHooks/gameApi.js";
 import { useNavigate } from 'react-router';
+import { UserContext } from "../contexts/UserContext.js";
 
 export default function CreatePage() {
   let { create } = useCreate();
   let navigate = useNavigate();
+  let { email } = useContext(UserContext);
   let [imageUrl, setImageUrl] = useState('');
 
   let submitAction = async (formData) => {
     let gameData = Object.fromEntries(formData);
     gameData.imageUrl = imageUrl;
+    gameData.authorEmail = email;
+    
     await create(gameData);
-    console.log(gameData);
 
     navigate('/games');
   }
