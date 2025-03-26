@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router";
 import { useEdit, useGame } from "../apiHooks/gameApi";
-import { useEffect, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 
 export default function EditPage() {
   let { gameId } = useParams();
@@ -9,14 +9,27 @@ export default function EditPage() {
   let navigate = useNavigate();
   let [imageUrl, setImageUrl] = useState('');
 
-  let submitAction = async (formData) => {
-    let gameData = Object.fromEntries(formData);
-    gameData.imageUrl = imageUrl;
+  let submitHandler = async (state, formData) => {
+    let formDataValues = Object.fromEntries(formData);
+    formDataValues.imageUrl = imageUrl;
 
-    await editGame(gameId, gameData);
+    let data = await editGame(gameId, formDataValues);
+
+    if (data?.error) {
+      return alert(data.error);
+    }
 
     return navigate(`/${gameId}/details`);
   }
+
+  let initialData = {
+    title: '',
+    genre: '',
+    description: '',
+    date: ''
+  }
+
+  let [state, submitAction, isPending] = useActionState(submitHandler, initialData);
 
   useEffect(() => {
     if (game?.imageUrl) {
@@ -65,7 +78,7 @@ export default function EditPage() {
               {imageUrl && <img src={imageUrl} alt="Cover" className="cover-preview" />}
             </div>
 
-            <button type="submit" className="submit-btn">Submit</button>
+            <button type="submit" className="submit-btn" disabled={isPending}>Submit</button>
           </form>
         </div>
       </div>
