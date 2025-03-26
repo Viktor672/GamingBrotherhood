@@ -28,10 +28,7 @@ export let useGame = (gameId) => {
     useEffect(() => {
         handleRequest(`${baseUrl}/${gameId}`, 'GET')
             .then(data => {
-                setGame(data)
-            })
-            .catch(err => {
-                return alert(err.message);
+                setGame(data);
             });
     }, [gameId]);
 
@@ -49,14 +46,13 @@ export let useCreate = () => {
         }
     }
     let create = async (gameData) => {
-        try {
-            console.log(options);
+        console.log(Object.values(gameData));
 
-            await handleRequest(baseUrl, 'POST', gameData, options);
+        if (Object.values(gameData).some(field => field === '')) {
+            return { error: 'There should not be empty fields!' };
         }
-        catch (err) {
-            return alert(err.message);
-        }
+
+        await handleRequest(baseUrl, 'POST', gameData, options);
     }
 
     return {
@@ -97,7 +93,11 @@ export let useEdit = () => {
             }
         }
 
-        handleRequest(`${baseUrl}/${gameId}`, 'PUT', gameData, options);
+        if (Object.values(gameData).some(field => field === '')) {
+            return { error: 'There should not be empty fields!' };
+        }
+        
+        await handleRequest(`${baseUrl}/${gameId}`, 'PUT', gameData, options);
     }
 
     return {
