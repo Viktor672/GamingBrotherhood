@@ -5,6 +5,7 @@ export let handleRequest = async (url, method, data = {}, additionOpts = {}) => 
             'Content-Type': 'application/json',
             ...additionOpts.headers
         },
+        ...additionOpts
     };
 
     if (method !== 'GET') {
@@ -12,6 +13,10 @@ export let handleRequest = async (url, method, data = {}, additionOpts = {}) => 
     }
 
     let response = await fetch(url, options);
+
+   if(!response.ok){
+    return;
+   }
 
     if (response.status === 204) {
         return;
