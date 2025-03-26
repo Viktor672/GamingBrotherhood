@@ -36,7 +36,7 @@ section {
 }
 
 .home .content h1 {
-    color: #d3bdbd;
+    color: #eae5e5;
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
@@ -49,6 +49,7 @@ section {
     font-size: 1rem;
     line-height: 1.8;
     margin-bottom: 20px;
+    color:#eae5e5
 }
 
 .home .content a {
@@ -83,7 +84,6 @@ section {
     transform: scale(1.05);
 }
 
-/* Video Slide Fix */
 .video-slide {
     position: fixed;
     top: 0;
@@ -96,7 +96,7 @@ section {
 
 .media-nav-container {
     position: absolute;
-    bottom: 180px;  /* Adjust this to move it higher */
+    bottom: 180px;  
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -105,7 +105,6 @@ section {
     bottom: 180px 
 }
 
-/* Media Icons */
 .media-icons {
     display: flex;
     gap: 15px;
@@ -113,7 +112,7 @@ section {
 }
 
 .media-icons a img {
-    width: 30px; /* Adjust icon size */
+    width: 30px; 
     height: auto;
     transition: transform 0.3s ease;
 }
@@ -122,18 +121,17 @@ section {
     transform: scale(1.2);
 }
 
-/* Slider Navigation */
 .slider-navigation {
     display: flex;
     gap: 10px;
-    z-index: 2; /* Ensure above video */
+    z-index: 2; 
 }
 
 .nav-btn {
     width: 12px;
     height: 12px;
-    background-color: white; /* Ensure visibility */
-    border: 2px solid black; /* Optional for visibility */
+    background-color: white; 
+    border: 2px solid black; 
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease;

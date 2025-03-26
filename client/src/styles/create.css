@@ -96,6 +96,7 @@ h1 {
   cursor: pointer;
   text-align: center;
   transition: background 0.3s ease;
+  margin-right: 20px; /* Space between label and image */
 }
 
 .input-group label[for="game-cover"]:hover {
@@ -110,13 +111,17 @@ h1 {
 
 
 .cover-preview {
-  width: 120px;
-  height: 120px;
+  display: block;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  border-radius: 8px;
+  border: 2px solid #66fcf1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
   margin-top: 10px;
 }
+
 
 .submit-btn {
   width: 100%;
