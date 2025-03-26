@@ -1,10 +1,12 @@
-import {Link} from 'react-router';
+import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router';
+import { UserContext } from '../contexts/UserContext';
 
 const links = [
-  { name: "Go to Home Page", href: "/" },
-  { name: "Explore Games", href: "/games" },
-  { name: "Sign up here", href: "/register" },
-  { name: "Login here", href: "/login" },
+  { name: "Go to Home Page", href: "/", isAuth: false },
+  { name: "Explore Games", href: "/games", isAuth: false },
+  { name: "Sign up here", href: "/register", isAuth: true },
+  { name: "Login here", href: "/login", isAuth: true },
 ];
 
 const stats = [
@@ -15,6 +17,22 @@ const stats = [
 ];
 
 export default function AboutPage() {
+  let [isPending, setIsPending] = useState(true);
+  let [isAllowed, setIsAllowed] = useState(true);
+  let { accessToken } = useContext(UserContext);
+
+  useEffect(() => {
+    setIsPending(false);
+  }, []);
+
+  if (isPending) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="about-container">
       <div className="about-content">
@@ -26,12 +44,15 @@ export default function AboutPage() {
             it all. Are you ready to level up?
           </p>
           <div className="about-links">
-            {links.map((link) => (
-              <Link to={link.href} key={link.name} className="about-link">
-                {link.name} →
-              </Link>
-            ))}
-          </div>
+  {links
+    .filter((link) => (link.isAuth ? !accessToken : true))
+    .map((link) => (
+      <Link to={link.href} key={link.name} className="about-link">
+        {link.name} →
+      </Link>
+    ))}
+</div>
+
         </div>
         <div className="about-stats">
           {stats.map((stat) => (
