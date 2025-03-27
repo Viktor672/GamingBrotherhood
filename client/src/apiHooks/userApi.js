@@ -28,7 +28,7 @@ export let useUser = () => {
 
     let getLikes = async (gameId) => {
         try {
-            let likesData = await handleRequest(`http://localhost:3030/data/likes`, 'GET');
+            let likesData = await handleRequest(`${baseUrl}/likes`, 'GET');
 
             likesData = likesData.filter(curObj => curObj.gameId === gameId);
 
