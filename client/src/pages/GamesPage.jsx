@@ -1,24 +1,39 @@
 import { Link } from 'react-router';
-import { useAllGames } from '../apiHooks/gameApi';
+import { useAllGames, useSearch } from '../apiHooks/gameApi';
 import { useEffect, useState } from 'react';
 
 export default function GamesPage() {
-    let { allGames, loading } = useAllGames();  
-    let [isLoading, setIsLoading] = useState(true);
+    let { allGames } = useAllGames();
+    let [isPending, setIsPending] = useState(true);
+    let [filteredGames, setFilteredGames] = useState([]);
 
     useEffect(() => {
         if (allGames.length > 0) {
-            setIsLoading(false);  
+            setFilteredGames(allGames);
+            setIsPending(false);
         }
     }, [allGames]);
 
-    if (isLoading || loading) {
+    if (isPending) {
         return (
             <div className="loading-container">
-                <div className="loading-spinner"></div> 
+                <div className="loading-spinner"></div>
             </div>
         );
     }
+
+    const searchHandler = async (e) => {
+        let searchTerm = e.target.value;
+
+        let resultGames = allGames.filter((game) =>
+            game.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        console.log(resultGames);
+
+        setFilteredGames(resultGames);
+    };
+
+
 
     return (
         <div className="page-container">
@@ -39,10 +54,19 @@ export default function GamesPage() {
                             <p className="blog__subtitle">Stay updated with the newest games, reviews, and insights from the world of gaming.</p>
                         </div>
 
+                        <div className="search-bar-wrapper">
+                            <input
+                                type="text"
+                                className="search-bar"
+                                placeholder="Search games by title..."
+                                onChange={searchHandler}
+                            />
+                        </div>
+
                         <div className="blog__grid">
-                            {allGames.length > 0
+                            {filteredGames.length > 0
                                 ?
-                                allGames.map((game) => (
+                                filteredGames.map((game) => (
                                     <article
                                         key={game._id}
                                         className="blog__post"
