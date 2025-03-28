@@ -1,7 +1,7 @@
 import React, { useActionState, useContext, useEffect, useState } from "react";
 import { useAllGames, useCreate } from "../apiHooks/gameApi.js";
 import { useNavigate } from 'react-router';
-import { UserContext } from "../contexts/UserContext.js";
+import { UserContext } from "../contexts/UserContext";
 
 export default function CreatePage() {
   let { create } = useCreate();
