@@ -11,8 +11,14 @@ export default function RegisterPage() {
     let registerHandler = async (state, formData) => {
         let formDataValues = Object.fromEntries(formData);
         let data = await register(formDataValues.email, formDataValues.password, formDataValues.rePassword);
+
+        if (data?.error) {
+            alert(data.error);
+            return { email: formDataValues.email };
+        }
+
         setUserHandler(data);
-        
+
         navigate('/games');
     }
 
@@ -23,10 +29,10 @@ export default function RegisterPage() {
             <form className="form" action={registerAction}>
                 <b><p>Register to Your Account</p></b>
                 <br />
-                <input className="auth-input" type="email" id="email" name="email" placeholder="Email" />
+                <input className="auth-input" type="email" id="email" name="email" placeholder="Email" defaultValue={state.email} />
                 <input className="auth-input" type="password" id="password" name="password" placeholder="Password" />
                 <input className="auth-input" type="password" id="rePassword" name="rePassword" placeholder="Repeat Password" />
-                <input className="auth-btn-submit" type="submit" value="Register" disabled={isPending}/>
+                <input className="auth-btn-submit" type="submit" value="Register" disabled={isPending} />
                 <p className="message">
                     Already have an account? <Link to="/login">Login</Link>
                 </p>
