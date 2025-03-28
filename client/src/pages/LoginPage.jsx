@@ -11,9 +11,16 @@ export default function LoginPage() {
     let loginHandler = async (state, formData) => {
         let formDataValues = Object.fromEntries(formData);
         let data = await login(formDataValues.email, formDataValues.password);
-        setUserHandler(data);
 
+        if (data?.error) {
+            alert(data.error);
+            return { email: formDataValues.email };
+        }
+
+        setUserHandler(data);
+        
         navigate('/games');
+        return { email: formDataValues.email };
     }
 
     let [state, loginAction, isPending] = useActionState(loginHandler, { email: '', password: '' });
@@ -23,7 +30,7 @@ export default function LoginPage() {
             <form className="form" action={loginAction}>
                 <b><p>Login to Your Account</p></b>
                 <br />
-                <input className="auth-input" type="email" id="email" name="email" placeholder="Email" />
+                <input className="auth-input" type="email" id="email" name="email" placeholder="Email" defaultValue={state.email} />
                 <input className="auth-input" type="password" id="password" name="password" placeholder="Password" />
                 <input className="auth-btn-submit" type="submit" value="Login" disabled={isPending} />
                 <p className="message">
