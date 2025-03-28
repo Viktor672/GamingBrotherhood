@@ -18,7 +18,6 @@ const stats = [
 
 export default function AboutPage() {
   let [isPending, setIsPending] = useState(true);
-  let [isAllowed, setIsAllowed] = useState(true);
   let { accessToken } = useContext(UserContext);
 
   useEffect(() => {

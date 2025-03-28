@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
-import ActiveNavLink from './ActiveLink'; // Import the reusable component
+import ActiveNavLink from './ActiveLink';
 
 export default function Header() {
     let { email } = useContext(UserContext);
