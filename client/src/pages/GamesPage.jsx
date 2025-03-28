@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { useAllGames, useSearch } from '../apiHooks/gameApi';
+import { useAllGames } from '../apiHooks/gameApi';
 import { useEffect, useState } from 'react';
 
 export default function GamesPage() {
