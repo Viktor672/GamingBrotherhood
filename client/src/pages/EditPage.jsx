@@ -7,14 +7,26 @@ export default function EditPage() {
   let { editGame } = useEdit();
   let { game } = useGame(gameId);
   let navigate = useNavigate();
+  let [isPending, setIsPending] = useState(false);
   let [imageUrl, setImageUrl] = useState('');
+  let [formData, setFormData] = useState({
+    title: game?.title,
+    genre: game?.genre,
+    description: game?.description,
+    date: game?.date
+  });
 
-  let submitHandler = async (state, formData) => {
-    let formDataValues = Object.fromEntries(formData);
-    formDataValues.imageUrl = imageUrl;
+  let changeHandler = (e) => {
+    let { name, value } = e.target;
 
-    let data = await editGame(gameId, formDataValues);
+    setFormData(oldState => ({ ...oldState, [name]: value, imageUrl }));
+  }
 
+  let editHandler = async (e) => {
+    e.preventDefault();
+    setIsPending(true);
+    let data = await editGame(gameId, formData);
+    setIsPending(false);
     if (data?.error) {
       return alert(data.error);
     }
@@ -22,20 +34,17 @@ export default function EditPage() {
     return navigate(`/${gameId}/details`);
   }
 
-  let initialData = {
-    title: '',
-    genre: '',
-    description: '',
-    date: ''
-  }
-
-  let [state, submitAction, isPending] = useActionState(submitHandler, initialData);
-
   useEffect(() => {
-    if (game?.imageUrl) {
+    if ( game) {
+      setFormData({
+        title: game.title,
+        genre: game.genre,
+        description: game.description,
+        date: game.date
+      });
       setImageUrl(game.imageUrl);
     }
-  }, [game?.imageUrl]);
+  }, [game]);
 
   const handleFileChange = (e) => {
     let file = e.target.files?.[0];
@@ -51,25 +60,25 @@ export default function EditPage() {
       <div className="form-container">
         <div className="form-box">
           <h1>Add a Game</h1>
-          <form action={submitAction}>
+          <form onSubmit={editHandler}>
             <div className="input-group">
               <label htmlFor="game-title">Title</label>
-              <input id="game-title" placeholder="Game title" type="text" name="title" className="input-field" defaultValue={game.title} />
+              <input id="game-title" placeholder="Game title" type="text" name="title" className="input-field" value={formData.title} onChange={changeHandler} />
             </div>
 
             <div className="input-group">
               <label htmlFor="game-genre">Genre</label>
-              <input id="game-genre" placeholder="Action, RPG, FPS" type="text" name="genre" className="input-field" defaultValue={game.genre} />
+              <input id="game-genre" placeholder="Action, RPG, FPS" type="text" name="genre" className="input-field" value={formData.genre} onChange={changeHandler} />
             </div>
 
             <div className="input-group">
               <label htmlFor="game-description">Description</label>
-              <input id="game-description" placeholder="Game Description" type="text" name="description" className="input-field" defaultValue={game.description} />
+              <input id="game-description" placeholder="Game Description" type="text" name="description" className="input-field" value={formData.description} onChange={changeHandler} />
             </div>
 
             <div className="input-group">
               <label htmlFor="game-release-date">Release Date</label>
-              <input id="game-release-date" type="date" name="date" className="input-field" defaultValue={game.date} />
+              <input id="game-release-date" type="date" name="date" className="input-field" value={formData.date} onChange={changeHandler} />
             </div>
 
             <div className="input-group">
