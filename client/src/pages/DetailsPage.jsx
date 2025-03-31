@@ -1,10 +1,13 @@
 import { Link, useNavigate, useParams } from "react-router";
-import { useGame } from "../apiHooks/gameApi";
-import { useContext, useEffect, useState } from "react";
+import { useDelete, useGame } from "../apiHooks/gameApi";
+import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useUser } from "../apiHooks/userApi";
 
 export default function DetailsPage() {
+  let { deleteGame } = useDelete();
+  let navigate = useNavigate();
+  let hasRunned = useRef(false);
   let { accessToken } = useContext(UserContext);
   let { _id } = useContext(UserContext);
   let { gameId } = useParams();
@@ -25,6 +28,21 @@ export default function DetailsPage() {
     setHasLiked(true);
     localStorage.setItem(`liked_${gameId}_${_id}`, "true");
   };
+
+  let deleteHandler = async () => {
+    if (hasRunned.current) return;
+
+    let hasConfirmed = window.confirm('Are you sure you want to delete?');
+
+    if (!hasConfirmed) {  
+      navigate(`/${gameId}/details`);
+      return;
+    }
+
+    hasRunned.current = true;
+    await deleteGame(gameId);
+    return navigate('/games');
+  }
 
   useEffect(() => {
     getLikes(gameId)
@@ -78,9 +96,9 @@ export default function DetailsPage() {
             <Link to={`/${gameId}/edit`} className="details__edit-btn">
               Edit
             </Link>
-            <Link to={`/${gameId}/delete`} className="details__delete-btn">
+            <button className="details__delete-btn" onClick={deleteHandler}>
               Delete
-            </Link>
+            </button>
           </div>
         )}
       </div>
