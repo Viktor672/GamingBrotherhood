@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router';
+import { Routes, Route } from 'react-router';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import HomePage from './pages/HomePage';
@@ -12,14 +12,11 @@ import CreatePage from './pages/CreatePage';
 import { UserProvider } from './contexts/UserContext';
 import LogoutPage from './pages/LogoutPage';
 import EditPage from './pages/EditPage';
-import DeletePage from './pages/DeletePage';
+import PublicRoute from './routes/PublicRoute';
+import PrivateRoute from './routes/PrivateRoute';
+import OwnerRoute from './routes/OwnerRoute';
 
 function App() {
-    let PrivateRoute = ({ children }) => {
-        let isAuthenticated = !!localStorage.getItem('user');
-        return isAuthenticated ? children : <Navigate to="/register" />;
-    };
-
     return (
         <UserProvider>
             <div className="app-container">
@@ -28,14 +25,13 @@ function App() {
                 <main className="main-content">
                     <Routes>
                         <Route path="/" element={<HomePage />} />
-                        <Route path="/login" element={<LoginPage />} />
-                        <Route path="/register" element={<RegisterPage />} />
+                        <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
+                        <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
                         <Route path="/404" element={<NotFound />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/games" element={<GamesPage />} />
                         <Route path="/:gameId/details" element={<DetailsPage />} />
-                        <Route path="/:gameId/edit" element={<PrivateRoute><EditPage /></PrivateRoute>} />
-                        <Route path="/:gameId/delete" element={<PrivateRoute><DeletePage /></PrivateRoute>} />
+                        <Route path="/:gameId/edit" element={<OwnerRoute><EditPage /></OwnerRoute>} />
                         <Route path="/create" element={<PrivateRoute><CreatePage /></PrivateRoute>} />
                         <Route path="/logout" element={<PrivateRoute><LogoutPage /></PrivateRoute>} />
                         <Route path="*" element={<NotFound />} />
