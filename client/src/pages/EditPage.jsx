@@ -35,7 +35,7 @@ export default function EditPage() {
   }
 
   useEffect(() => {
-    if ( game) {
+    if (game) {
       setFormData({
         title: game.title,
         genre: game.genre,
@@ -63,22 +63,22 @@ export default function EditPage() {
           <form onSubmit={editHandler}>
             <div className="input-group">
               <label htmlFor="game-title">Title</label>
-              <input id="game-title" placeholder="Game title" type="text" name="title" className="input-field" value={formData.title} onChange={changeHandler} />
+              <input id="game-title" placeholder="Game title" type="text" name="title" className="input-field" value={formData?.title || ''} onChange={changeHandler} />
             </div>
 
             <div className="input-group">
               <label htmlFor="game-genre">Genre</label>
-              <input id="game-genre" placeholder="Action, RPG, FPS" type="text" name="genre" className="input-field" value={formData.genre} onChange={changeHandler} />
+              <input id="game-genre" placeholder="Action, RPG, FPS" type="text" name="genre" className="input-field" value={formData?.genre || ''} onChange={changeHandler} />
             </div>
 
             <div className="input-group">
               <label htmlFor="game-description">Description</label>
-              <input id="game-description" placeholder="Game Description" type="text" name="description" className="input-field" value={formData.description} onChange={changeHandler} />
+              <input id="game-description" placeholder="Game Description" type="text" name="description" className="input-field" value={formData?.description || ''} onChange={changeHandler} />
             </div>
 
             <div className="input-group">
               <label htmlFor="game-release-date">Release Date</label>
-              <input id="game-release-date" type="date" name="date" className="input-field" value={formData.date} onChange={changeHandler} />
+              <input id="game-release-date" type="date" name="date" className="input-field" value={formData?.date || ''} onChange={changeHandler} />
             </div>
 
             <div className="input-group">
