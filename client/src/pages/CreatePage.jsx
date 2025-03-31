@@ -18,8 +18,6 @@ export default function CreatePage() {
 
   let changeHandler = (e) => {
     let { name, value } = e.target;
-    console.log('name', name);
-    console.log('value', value);
 
     setFormData((oldState) => ({ ...oldState, [name]: value }));
   }

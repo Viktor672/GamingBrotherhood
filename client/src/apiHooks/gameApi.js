@@ -46,8 +46,6 @@ export let useCreate = () => {
         }
     }
     let create = async (gameData) => {
-        console.log(Object.values(gameData));
-
         if (Object.values(gameData).some(field => field === '')) {
             return { error: 'There should not be empty fields!' };
         }
