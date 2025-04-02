@@ -1657,7 +1657,7 @@
                     "Travel deep into the goblin city of Undermine and learn to D.R.I.V.E., join a cartel, adventure in two new delves, a new dungeon: Operation Floodgate, face Gallywix in the Liberation of Undermine raid, battle in a new PvP Arena— and more!",
                 date: "2025-03-18",
                 genre: "Fantasy",
-                imageUrl: "../../public/images/world-of-warcraft.webp",
+                imageUrl: "/images/world-of-warcraft.webp",
                 authorEmail: "smithwilliams@gmail.com",
                 _createdOn: 1742661694995,
                 _id: "68a4bf99-6f8f-412f-b101-f30e84e89005",
