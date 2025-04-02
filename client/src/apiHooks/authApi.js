@@ -7,7 +7,7 @@ let baseUrl = 'http://localhost:3030/users';
 export let useAuth = () => {
     let { accessToken, setUserHandler } = useContext(UserContext);
     let abortControllerRef = useRef(new AbortController());
-    
+
     let login = async (email, password) => {
         let data = await handleRequest(`${baseUrl}/login`, 'POST', { email, password }, { signal: abortControllerRef.current.signal });
 
