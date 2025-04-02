@@ -81,7 +81,7 @@ export default function DetailsPage() {
 
           <div className="blog__like-count-wrapper">
             <span className="blog__like-icon">
-              <img src="../../public/images/heart.svg" alt="" />
+              <img src="/images/heart.svg" alt="" />
             </span>
             <span className="blog__like-count">{likesCount} Likes</span>
           </div>

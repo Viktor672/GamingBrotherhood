@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url('../../public/images/landscape.jpg') no-repeat center center/cover;
+  background: url('/images/landscape.jpg') no-repeat center center/cover;
   padding: 20px;
 }
 
