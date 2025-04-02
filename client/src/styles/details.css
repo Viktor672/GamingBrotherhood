@@ -2,7 +2,6 @@
     position: relative;
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(to right, rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.85)), url('../assets/images/big-foot.jpg') no-repeat center center/cover;
     color: #ffffff;
     display: flex;
     justify-content: center;
@@ -200,18 +199,6 @@
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
 }
-
-/* .details__edit-btn:hover:before,
-.details__delete-btn:hover:before {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-}
-
-.details__edit-btn:not(:hover):before,
-.details__delete-btn:not(:hover):before {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(0);
-} */
 
 .details__multiplayer {
     font-size: 1.3rem;

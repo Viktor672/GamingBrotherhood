@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
-import facebookIcon from '../assets/images/facebook-brands.svg';
-import instagramIcon from '../assets/images/instagram-brands.svg';
-import twitterIcon from '../assets/images/twitter-brands.svg';
+import facebookIcon from '../../public/images/facebook-brands.svg';
+import instagramIcon from '../../public/images/instagram-brands.svg';
+import twitterIcon from '../../public/images/twitter-brands.svg';
 
 export default function HomePage() {
     return (
@@ -9,7 +9,7 @@ export default function HomePage() {
         <section className="home">
             <video
                 className="video-slide"
-                src="../src/assets/videos/homeVideo.mp4"
+                src="../../public/videos/homeVideo.mp4"
                 autoPlay
                 muted
                 loop

@@ -64,10 +64,6 @@ export default function DetailsPage() {
       }}
     >
       <div className="details__container">
-        {/* <div className="details__header">
-          <img src={game.author?.imageUrl} alt={game.authorName} className="details__author-img" />
-        </div> */}
-
         <h1 className="details__title">{game.title}</h1>
         <p className="details__date">{game.date} | {game.genre}</p>
         <p className="details__description">{game.description}</p>
@@ -85,7 +81,7 @@ export default function DetailsPage() {
 
           <div className="blog__like-count-wrapper">
             <span className="blog__like-icon">
-              <img src="../src/assets/images/heart.svg" alt="" />
+              <img src="../../public/images/heart.svg" alt="" />
             </span>
             <span className="blog__like-count">{likesCount} Likes</span>
           </div>

@@ -28,7 +28,6 @@ export default function GamesPage() {
         let resultGames = allGames.filter((game) =>
             game.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
-        console.log(resultGames);
 
         setFilteredGames(resultGames);
     };
@@ -39,7 +38,7 @@ export default function GamesPage() {
         <div className="page-container">
             <video
                 className="video-background"
-                src="../src/assets/videos/gamesVideo.mov"
+                src="../../public/videos/gamesVideo.mov"
                 autoPlay
                 muted
                 loop

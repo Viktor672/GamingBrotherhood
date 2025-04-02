@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../assets/images/gaming-competition-moment-teams-facing-each-other-concentration-moment-finals-esports-scaled.jpg') no-repeat center center/cover;
+    background: url('../../public/images/gaming-competition-moment-teams-facing-each-other-concentration-moment-finals-esports-scaled.jpg') no-repeat center center/cover;
     position: relative;
 }
 
