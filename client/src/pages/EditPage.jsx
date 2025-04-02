@@ -1,9 +1,11 @@
 import { useNavigate, useParams } from "react-router";
 import { useEdit, useGame } from "../apiHooks/gameApi";
-import { useActionState, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 export default function EditPage() {
   let { gameId } = useParams();
+  let { email } = useContext(UserContext);
   let { editGame } = useEdit();
   let { game } = useGame(gameId);
   let navigate = useNavigate();
@@ -13,13 +15,15 @@ export default function EditPage() {
     title: game?.title,
     genre: game?.genre,
     description: game?.description,
-    date: game?.date
+    date: game?.date,
+    imageUrl: game?.imageUrl,
+    authorEmail:game?.authorEmail
   });
 
   let changeHandler = (e) => {
     let { name, value } = e.target;
 
-    setFormData(oldState => ({ ...oldState, [name]: value, imageUrl }));
+    setFormData(oldState => ({ ...oldState, [name]: value, imageUrl: imageUrl }));
   }
 
   let editHandler = async (e) => {
@@ -36,13 +40,15 @@ export default function EditPage() {
 
   useEffect(() => {
     if (game) {
+      setImageUrl(game.imageUrl);
       setFormData({
         title: game.title,
         genre: game.genre,
         description: game.description,
-        date: game.date
+        date: game.date,
+        imageUrl: game.imageUrl,
+        authorEmail: email
       });
-      setImageUrl(game.imageUrl);
     }
   }, [game]);
 
@@ -51,9 +57,19 @@ export default function EditPage() {
     if (!file) return;
 
     let reader = new FileReader();
-    reader.onload = (event) => setImageUrl(event.target.result);
+    reader.onload = (event) => {
+      let newImageUrl = event.target.result;
+      setImageUrl(newImageUrl);
+      setFormData(oldState => ({
+        ...oldState,
+        imageUrl: newImageUrl,
+
+      }));
+    };
     reader.readAsDataURL(file);
   };
+
+  console.log(imageUrl);
 
   return (
     <>
@@ -83,7 +99,7 @@ export default function EditPage() {
 
             <div className="input-group">
               <label htmlFor="game-cover">Upload Cover</label>
-              <input id="game-cover" name="imageUrl" type="file" accept="image/*" onChange={handleFileChange} className="input-field" />
+              <input id="game-cover" className="input-field" name="imageUrl" type="file" accept="image/*" onChange={handleFileChange} />
               {imageUrl && <img src={imageUrl} alt="Cover" className="cover-preview" />}
             </div>
 
