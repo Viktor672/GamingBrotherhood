@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-export default function NotFound() {
+export default function NotFoundPage() {
     return (
         <main className="not-found-container">
             <div className="text-center">
