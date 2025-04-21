@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('images/cute.jpg');
+  background-image: url('/images/cute.jpg');
   background-size: cover;
   background-position: center;
 }
